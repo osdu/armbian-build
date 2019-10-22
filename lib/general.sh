@@ -638,7 +638,7 @@ prepare_host()
 
 	# Use backup server by default to balance the load
 
-	ARMBIANSERVER=dl.armbian.com
+	ARMBIANSERVER=${ARMBIANSERVER:-dl.armbian.com}
 
 	local toolchains=(
 		"https://${ARMBIANSERVER}/_toolchains/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz"
@@ -712,8 +712,8 @@ download_toolchain()
 	cd $SRC/cache/toolchains/
 
 	display_alert "Downloading" "$dirname"
-	curl -Lf --progress-bar $url -o $filename
-	curl -Lf --progress-bar ${url}.asc -o ${filename}.asc
+	curl -k -Lf --progress-bar $url -o $filename
+	curl -k -Lf --progress-bar ${url}.asc -o ${filename}.asc
 
 	local verified=false
 
