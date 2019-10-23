@@ -48,7 +48,7 @@ config:
 
 
 kernel:
-	$(compile) BUILD_DESKTOP=no KERNEL_CONFIGURE=yes KERNEL_ONLY=yes RELEASE=bionic
+	$(compile) BUILD_DESKTOP=no KERNEL_CONFIGURE=no KERNEL_ONLY=yes RELEASE=bionic
 
 
 bionic:
