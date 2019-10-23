@@ -48,12 +48,10 @@ config:
 
 
 kernel:
-	touch .ignore_changes
 	$(compile) BUILD_DESKTOP=no KERNEL_CONFIGURE=yes KERNEL_ONLY=yes RELEASE=bionic
 
 
 bionic:
-	touch .ignore_changes
 	$(compile) BUILD_DESKTOP=no KERNEL_CONFIGURE=no KERNEL_ONLY=no RELEASE=$@
 	@if [ -d /home/armbian/rock64/.tmp/rootfs-default-rock64-bionic-no ]; then \
 		sudo umount -l /home/armbian/rock64/.tmp/rootfs-default-rock64-bionic-no/tmp/overlay || true; \
